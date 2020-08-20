@@ -12,9 +12,7 @@ async function test2() {
             ignoreDefaultArgs: [`–disable - extensions`]
         })
 
-        // const knexConfig = require("./knexfile");
-        // const Knex = knex(knexConfig[process.env.NODE_ENV || "development"]);
-        // await Knex.raw(/* sql */`DELETE FROM hacker`);
+       
        
 
 
@@ -24,17 +22,17 @@ async function test2() {
 
            
 
-            // await page.waitForSelector('#intercom-container')
+            
             await page.waitFor(2 * 1000);
 
             let body = await page.content()
 
             let $ = await cheerio.load(body)
             const memos = await jsonfile.readFile('./news.json')
-            // const memos = (await Knex.raw(/* sql */`SELECT * FROM hacker`)).rows;
+           
             let table =$(".athing")
             let subtitle =$('.subtext')
-            // let span=$('span')
+            
             let i,j
             for (i=1,j=3; i<table.length;i++,j+=4){
                 const id =i
@@ -49,17 +47,7 @@ async function test2() {
             }
             console.log(memos)
        
-            // await Knex.raw(/* sql */`DELETE FROM hacker`);
-
-            // for (let i = 0; i < memos.length; i++) {
-            //     await Knex.raw(/*sql*/`INSERT INTO hacker 
-            //     (title,points,author,time,numberOfComment) VALUES (?,?,?,?,?)`
-            //         , [memos[i].title, memos[i].points, memos[i].author, memos[i].time, memos[i].numberofcomment]);
             
-
-
-        
-        // await Knex.destroy()
         await browser.close()
         await jsonfile.writeFile('./news.json',memos)
 

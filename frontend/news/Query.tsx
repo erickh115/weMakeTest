@@ -55,7 +55,10 @@ const UserQuery = () => {
                         onPress={() => {
                           Linking.openURL(`${news.weblink}`);
                         }}>
-                        <Text style={styles.text}>{news.title}</Text>
+                        <Text style={styles.text}>{news.title} </Text>
+                        <Text style={{fontSize: 10,flexWrap: 'wrap',textAlign:"auto",margin:10}}>
+                          {news.numberofcomment}
+                        </Text>
                       </TouchableOpacity>
                     </CardItem>
 
